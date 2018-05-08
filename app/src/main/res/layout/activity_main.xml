@@ -20,7 +20,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="380dp"
+        android:layout_height="407dp"
+        android:background="#52FFE7"
+        android:foregroundGravity="center"
+        android:scrollbars="vertical"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="bottom|center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="160dp" />
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -28,6 +43,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:backgroundTint="#29D5D3"
+        app:backgroundTint="@android:color/background_light"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>
