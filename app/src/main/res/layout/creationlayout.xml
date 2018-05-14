@@ -17,13 +17,11 @@
             android:layout_height="340dp" />
     </LinearLayout>
 
-    <CheckedTextView
-        android:layout_width="79dp"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Repeat"
-        android:checked="true"
-        android:textColor="#29D5D3" />
-        <!--android:checkMark="@drawable/checked" < Save a pic to the drawable folder->-->
+        android:text="@string/pick_date"
+        android:onClick="showDatePickerDialog" />
 
 
 
