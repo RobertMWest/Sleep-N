@@ -27,7 +27,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="380dp"
-        android:layout_height="407dp"
+        android:layout_height="430dp"
         android:background="#52FFE7"
         android:foregroundGravity="center"
         android:scrollbars="vertical"
@@ -37,15 +37,15 @@
         tools:layout_editor_absoluteY="160dp" />
 
 
-    <!--<android.support.design.widget.FloatingActionButton
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="#29D5D3"
-        app:backgroundTint="@android:color/background_light"/>
-        android:src="@android:drawable/ic_lock_idle_alarm"-->
+        app:backgroundTint="@android:color/background_light"
+        android:src="@android:drawable/ic_lock_idle_alarm"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
