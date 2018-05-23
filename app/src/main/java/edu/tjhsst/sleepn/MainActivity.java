@@ -1,5 +1,9 @@
 package edu.tjhsst.sleepn;
 
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +24,9 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -115,8 +122,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+        FirebaseMessaging.getInstance().subscribeToTopic("FCPS");
 
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 10);
+
+        //Create a new PendingIntent and add it to the AlarmManager
+        Intent intent = new Intent(this, AlarmReceiverActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager am =
+                (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
+        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                pendingIntent);
+
+        cal.add(Calendar.SECOND, 10);
+
+        //Create a new PendingIntent and add it to the AlarmManager
+        intent = new Intent(this, AlarmReceiverActivity.class);
+        pendingIntent = PendingIntent.getActivity(this,
+                UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                pendingIntent);
     }
 
 
