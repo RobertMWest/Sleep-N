@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -28,13 +31,21 @@ public class AlarmReceiverActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_alarm_receiver);
 
+        TextView alarmTitle = (TextView) findViewById(R.id.alarmTitle);
+        String alarmTitleText = getIntent().getStringExtra("alarmName");
+        System.out.println(alarmTitleText);
+        if(alarmTitleText != null && !alarmTitleText.equals(""))
+        {
+            alarmTitle.setText(alarmTitleText);
+        }
+
 
         Button stopAlarm = (Button) findViewById(R.id.stopAlarm);
-        stopAlarm.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+        stopAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 mMediaPlayer.stop();
                 finish();
-                return false;
             }
         });
 
