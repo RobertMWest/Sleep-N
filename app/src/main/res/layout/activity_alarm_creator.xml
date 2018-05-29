@@ -13,8 +13,43 @@
 
         <TimePicker
             android:id="@+id/timePicker"
-            android:layout_width="288dp"
+            android:layout_width="match_parent"
             android:layout_height="340dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="#29D5D3"
+            android:text="Enter Alarm Name Here:"
+            android:gravity="center"
+
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Alarm"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            />
+
+
     </LinearLayout>
     <!--
         <LinearLayout
