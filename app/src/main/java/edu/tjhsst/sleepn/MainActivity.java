@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<3;i++)
         {
             index=i;
-            mArrayList.add(new Alarm(8,true));
+            mArrayList.add(new Alarm(8,true, "Hi"));
         }
 
         // use this setting to improve performance if you know that changes
@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i = new Intent(MainActivity.this, AlarmCreator.class);
+                startActivityForResult(i, 1);
             }
         });
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //FOR TESTING ONLY
-
+        /*
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.SECOND, 10);
 
@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
         am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
                 pendingIntent);
+         */
     }
 
 
