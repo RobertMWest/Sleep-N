@@ -28,7 +28,7 @@
         android:id="@+id/my_recycler_view"
         android:layout_width="380dp"
         android:layout_height="430dp"
-        android:background="#52FFE7"
+        android:background="@color/tealBackground"
         android:foregroundGravity="center"
         android:scrollbars="vertical"
         app:layout_anchor="@+id/include"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="#29D5D3"
+        android:backgroundTint="@color/tealAccent"
         app:backgroundTint="@android:color/background_light"
         android:src="@android:drawable/ic_lock_idle_alarm"/>
 

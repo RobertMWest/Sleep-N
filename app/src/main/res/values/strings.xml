@@ -3,4 +3,10 @@
     <string name="title_activity_main">Sleep\'N</string>
     <string name="alarm_stop_button">Dismiss</string>
     <string name="alarm_title">Alarm</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="cancel_alarm">Cancel</string>
+    <string name="alarm_prompt">Enter Alarm Name Here:</string>
+    <string name="alarm_time">8:00 AM</string>
+    <string name="alarm_name">myAlarm</string>
+
 </resources>
