@@ -16,8 +16,8 @@
         android:background="#000000"
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
-        android:text="8:00 AM"
-        android:textColor="#29D5D3"
+        android:text="@string/alarm_time"
+        android:textColor="@color/tealAccent"
         android:textSize="66sp"
         android:textStyle="bold" />
 

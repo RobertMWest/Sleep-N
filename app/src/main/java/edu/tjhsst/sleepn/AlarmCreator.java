@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -14,16 +16,25 @@ import java.util.UUID;
 
 public class AlarmCreator extends AppCompatActivity {
 
+    private TimePicker timePicker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_creator);
 
-        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        timePicker = (TimePicker) findViewById(R.id.timePicker);
         int hour = timePicker.getCurrentHour();
         int minute = timePicker.getCurrentMinute();
 
-        
+        Button creationButton = (Button) findViewById(R.id.creationButton);
+
+        creationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+            }
+        });
 
         //Create a new PendingIntent and add it to the AlarmManager
 
