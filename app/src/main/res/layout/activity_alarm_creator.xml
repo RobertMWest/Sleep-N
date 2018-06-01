@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="#29D5D3"
-            android:text="Enter Alarm Name Here:"
+            android:textColor="@color/tealAccent"
+            android:text="@string/alarm_prompt"
             android:gravity="center"
 
 
@@ -41,12 +41,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Alarm"
+            android:text="@string/add_alarm"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="@string/cancel_alarm"
             />
 
 
