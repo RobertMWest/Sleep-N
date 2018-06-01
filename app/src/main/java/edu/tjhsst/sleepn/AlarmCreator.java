@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class AlarmCreator extends AppCompatActivity {
 
     private TimePicker timePicker;
+    private EditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +30,18 @@ public class AlarmCreator extends AppCompatActivity {
         int minute = timePicker.getCurrentMinute();
 
         Button creationButton = (Button) findViewById(R.id.creationButton);
+        mEditText = (EditText) findViewById(R.id.nameInput);
+
+        mEditText.clearFocus();
 
         creationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+                finish();
             }
         });
-
         //Create a new PendingIntent and add it to the AlarmManager
-
-
     }
 
     private void setAlarm(int Hour, int Minute) {
@@ -51,8 +54,14 @@ public class AlarmCreator extends AppCompatActivity {
         if (cal.getTimeInMillis() < System.currentTimeMillis())
             cal.set(Calendar.HOUR_OF_DAY, Hour + 24);
 
+
+
         Intent intent = new Intent(this, AlarmReceiverActivity.class);
-        intent.putExtra("alarmName", "Time to get up!");
+        System.out.println(mEditText.getText());
+        if(!mEditText.getText().equals(""))
+        {
+            intent.putExtra("alarmName", mEditText.getText().toString());
+        }
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am =

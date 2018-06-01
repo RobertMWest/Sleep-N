@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:textColor="@color/tealAccent"
-            android:text="@string/alarm_prompt"
+            android:hint="@string/alarm_prompt"
             android:gravity="center"
-
+            android:id="@+id/nameInput"
 
             />
 
