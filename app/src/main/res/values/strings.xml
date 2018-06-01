@@ -7,6 +7,6 @@
     <string name="cancel_alarm">Cancel</string>
     <string name="alarm_prompt">Enter Alarm Name Here:</string>
     <string name="alarm_time">8:00 AM</string>
-    <string name="alarm_name">myAlarm</string>
+
 
 </resources>

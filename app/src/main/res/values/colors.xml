@@ -6,4 +6,5 @@
     <color name="white">#ffffff</color>
     <color name="tealAccent">#29D5D3</color>
     <color name="tealBackground">#52FFE7</color>
+    <color name="black">#000000</color>
 </resources>
