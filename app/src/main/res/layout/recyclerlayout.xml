@@ -24,7 +24,6 @@
                 android:layout_width="75dp"
                 android:layout_height="50dp"
                 android:textAlignment="center"
-                android:background=""
                 android:gravity="end" />
         </LinearLayout>
 

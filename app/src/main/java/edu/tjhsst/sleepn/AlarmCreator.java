@@ -29,15 +29,22 @@ public class AlarmCreator extends AppCompatActivity {
         int hour = timePicker.getCurrentHour();
         int minute = timePicker.getCurrentMinute();
 
-        Button creationButton = (Button) findViewById(R.id.creationButton);
-        mEditText = (EditText) findViewById(R.id.nameInput);
+        findViewById(R.id.creationMainLayout).requestFocus();
 
-        mEditText.clearFocus();
+        Button creationButton = (Button) findViewById(R.id.creationButton);
+        Button cancelCreationButton = (Button) findViewById(R.id.cancelCreationButton);
+        mEditText = (EditText) findViewById(R.id.nameInput);
 
         creationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+                finish();
+            }
+        });
+        cancelCreationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });

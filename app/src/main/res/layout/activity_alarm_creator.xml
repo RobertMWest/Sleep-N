@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000">
+    android:id="@+id/creationMainLayout"
+    android:background="#000000"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +32,7 @@
             android:inputType="text"
             android:textColor="@color/tealAccent"
             android:hint="@string/alarm_prompt"
+            android:textColorHint="@color/tealAccent"
             android:gravity="center"
             android:id="@+id/nameInput"
 
