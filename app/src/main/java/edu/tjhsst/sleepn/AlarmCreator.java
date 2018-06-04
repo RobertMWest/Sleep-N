@@ -38,7 +38,10 @@ public class AlarmCreator extends AppCompatActivity {
         creationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+                int id = setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+
+                prepareIntent(id);
+
                 finish();
             }
         });
@@ -51,7 +54,7 @@ public class AlarmCreator extends AppCompatActivity {
         //Create a new PendingIntent and add it to the AlarmManager
     }
 
-    private void setAlarm(int Hour, int Minute) {
+    private int setAlarm(int Hour, int Minute) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, Hour);
         cal.set(Calendar.MINUTE, Minute);
@@ -69,13 +72,42 @@ public class AlarmCreator extends AppCompatActivity {
         {
             intent.putExtra("alarmName", mEditText.getText().toString());
         }
+        int intentId = UUID.randomUUID().hashCode();
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                intentId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am =
                 (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
         am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
                 pendingIntent);
 
         cal.add(Calendar.SECOND, 10);
+        return intentId;
+    }
+
+    private void prepareIntent(int intentId)
+    {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        if(!mEditText.getText().equals(""))
+        {
+            intent.putExtra("alarmName", mEditText.getText().toString());
+        }
+        else
+        {
+            intent.putExtra("alarmName", "Alarm");
+        }
+
+        String time = "";
+        if(timePicker.getCurrentHour() > 12)
+        {
+            int hour = timePicker.getCurrentHour() - 12;
+            time = String.valueOf(hour) + ":" + String.valueOf(timePicker.getCurrentMinute()) + " PM";
+        }
+        else
+        {
+            time = String.valueOf(timePicker.getCurrentHour()) + ":" + String.valueOf(timePicker.getCurrentMinute()) + " PM";
+        }
+        intent.putExtra("alarmTime", time);
+        intent.putExtra("intentId", intentId);
     }
 }

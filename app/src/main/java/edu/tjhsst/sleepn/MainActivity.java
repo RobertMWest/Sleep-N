@@ -25,6 +25,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -125,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("FCPS");
 
 
+
+
         //FOR TESTING ONLY
         /*
         Calendar cal = Calendar.getInstance();
@@ -151,6 +154,16 @@ public class MainActivity extends AppCompatActivity {
          */
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                int intentId = data.getIntExtra("intentId", -1);
+                String alarmName = data.getStringExtra("alarmName");
+                String alarmTime = data.getStringExtra("alarmTime");
 
+            }
+        }
+    }
 
 }
