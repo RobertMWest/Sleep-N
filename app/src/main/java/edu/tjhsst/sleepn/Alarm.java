@@ -8,12 +8,26 @@ public class Alarm {
     private int mIntentId;
     private String myTime;
     private String mAlarmName;
+    private boolean mActive;
 
     public Alarm(String alarmTime, String alarmName, int intentId)
     {
+        if(intentId >= 0)
+        {
+            mActive = true;
+        }
+        else
+        {
+            mActive = false;
+        }
+
         myTime=alarmTime;
         mIntentId=intentId;
         mAlarmName = alarmName;
+    }
+
+    public boolean isActive() {
+        return mActive;
     }
 
     public int getIntentId() {
