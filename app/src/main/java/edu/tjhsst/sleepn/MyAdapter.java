@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -44,7 +46,9 @@ import java.util.ArrayList;
             LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recyclerlayout, parent, false);
 
+
             ViewHolder vh = new ViewHolder(v);
+
             return vh;
         }
 
@@ -54,7 +58,9 @@ import java.util.ArrayList;
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
            // holder.mLinearLayout.setText(mDataset.get(position));
-
+            LinearLayout v=holder.mLinearLayout;
+            ((TextView)v.findViewById(R.id.timeTextView)).setText(mDataset.get(position).getTime());
+            ((TextView) v.findViewById(R.id.textView)).setText(mDataset.get(position).getAlarmName());
         }
 
         // Return the size of your dataset (invoked by the layout manager)

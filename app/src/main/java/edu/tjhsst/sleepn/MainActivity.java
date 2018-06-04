@@ -135,6 +135,12 @@ public class MainActivity extends AppCompatActivity {
                 String alarmName = data.getStringExtra("alarmName");
                 String alarmTime = data.getStringExtra("alarmTime");
                 //Add new alarm to RecyclerView here
+                Alarm alarm= new Alarm(alarmTime,alarmName,intentId);
+                index++;
+                Log.i(index+"","Index Add");
+                mArrayList.add(alarm);
+                mAdapter.notifyItemInserted(mArrayList.size()-1);
+                mAdapter.notifyDataSetChanged();
             }
         }
     }
