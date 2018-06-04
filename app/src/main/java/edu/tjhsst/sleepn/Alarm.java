@@ -5,33 +5,31 @@ package edu.tjhsst.sleepn;
  */
 
 public class Alarm {
-    private boolean isActive=false;
-    private int myTime;
+    private int mIntentId;
+    private String myTime;
     private String mAlarmName;
 
-    public Alarm(int alarmTime, boolean alarmIsActive, String alarmName)
+    public Alarm(String alarmTime, String alarmName, int intentId)
     {
         myTime=alarmTime;
-        isActive=alarmIsActive;
+        mIntentId=intentId;
         mAlarmName = alarmName;
     }
 
-    public boolean getActive()
-    {
-        return isActive;
+    public int getIntentId() {
+        return mIntentId;
     }
 
-    public int getTime()
+    public void setIntentId(int intentId) {
+        mIntentId = intentId;
+    }
+
+    public String getTime()
     {
         return myTime;
     }
 
-    public void setActive(boolean b)
-    {
-        isActive=b;
-    }
-
-    public void setTime(int t)
+    public void setTime(String t)
     {
         myTime=t;
     }
