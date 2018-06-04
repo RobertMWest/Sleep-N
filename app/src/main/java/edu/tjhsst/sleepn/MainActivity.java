@@ -125,33 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseMessaging.getInstance().subscribeToTopic("FCPS");
 
-
-
-
-        //FOR TESTING ONLY
-        /*
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 10);
-
-        //Create a new PendingIntent and add it to the AlarmManager
-        Intent intent = new Intent(this, AlarmReceiverActivity.class);
-        intent.putExtra("alarmName", "Time to get up!");
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager am =
-                (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
-                pendingIntent);
-
-        cal.add(Calendar.SECOND, 10);
-
-        //Create a new PendingIntent and add it to the AlarmManager
-        intent = new Intent(this, AlarmReceiverActivity.class);
-        pendingIntent = PendingIntent.getActivity(this,
-                UUID.randomUUID().hashCode(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
-                pendingIntent);
-         */
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
