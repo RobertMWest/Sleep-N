@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<3;i++)
         {
             index=i;
-            mArrayList.add(new Alarm("8:48 AM", "Alarm", -1));
+            //mArrayList.add(new Alarm("8:48 AM", "Alarm", -1));
         }
 
         // use this setting to improve performance if you know that changes
@@ -135,10 +135,11 @@ public class MainActivity extends AppCompatActivity {
                 String alarmName = data.getStringExtra("alarmName");
                 String alarmTime = data.getStringExtra("alarmTime");
                 //Add new alarm to RecyclerView here
-                Alarm alarm= new Alarm(alarmTime,alarmName,intentId);
+                Alarm alarm= new Alarm(alarmTime,alarmName,PendingIntentId);
                 index++;
                 Log.i(index+"","Index Add");
                 mArrayList.add(alarm);
+                Collections.sort(mArrayList);
                 mAdapter.notifyItemInserted(mArrayList.size()-1);
                 mAdapter.notifyDataSetChanged();
             }
