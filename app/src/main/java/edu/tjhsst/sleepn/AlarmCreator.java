@@ -38,7 +38,7 @@ public class AlarmCreator extends AppCompatActivity {
         creationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
+                PendingIntent id = setAlarm(timePicker.getCurrentHour(), timePicker.getCurrentMinute());
 
                 prepareIntent(id);
 
@@ -54,7 +54,7 @@ public class AlarmCreator extends AppCompatActivity {
         //Create a new PendingIntent and add it to the AlarmManager
     }
 
-    private int setAlarm(int Hour, int Minute) {
+    private PendingIntent setAlarm(int Hour, int Minute) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, Hour);
         cal.set(Calendar.MINUTE, Minute);
@@ -81,10 +81,10 @@ public class AlarmCreator extends AppCompatActivity {
                 pendingIntent);
 
         cal.add(Calendar.SECOND, 10);
-        return intentId;
+        return pendingIntent;
     }
 
-    private void prepareIntent(int intentId)
+    private void prepareIntent(PendingIntent pIntent)
     {
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
@@ -108,6 +108,6 @@ public class AlarmCreator extends AppCompatActivity {
             time = String.valueOf(timePicker.getCurrentHour()) + ":" + String.valueOf(timePicker.getCurrentMinute()) + " PM";
         }
         intent.putExtra("alarmTime", time);
-        intent.putExtra("intentId", intentId);
+        intent.putExtra("intent", pIntent);
     }
 }

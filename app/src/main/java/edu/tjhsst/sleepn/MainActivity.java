@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
-                int intentId = data.getIntExtra("intentId", -1);
+                PendingIntent intentId = (PendingIntent) data.getExtras().get("intent");
                 String alarmName = data.getStringExtra("alarmName");
                 String alarmTime = data.getStringExtra("alarmTime");
                 //Add new alarm to RecyclerView here
