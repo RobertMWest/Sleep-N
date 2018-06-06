@@ -1,18 +1,21 @@
 package edu.tjhsst.sleepn;
 
+import android.app.PendingIntent;
+import android.content.Intent;
+
 /**
  * Created by 2019bhumleke on 5/18/2018.
  */
 
 public class Alarm {
-    private int mIntentId;
+    private PendingIntent mPendingIntent;
     private String myTime;
     private String mAlarmName;
     private boolean mActive;
 
-    public Alarm(String alarmTime, String alarmName, int intentId)
+    public Alarm(String alarmTime, String alarmName, PendingIntent intent)
     {
-        if(intentId >= 0)
+        if(intent != null)
         {
             mActive = true;
         }
@@ -22,20 +25,12 @@ public class Alarm {
         }
 
         myTime=alarmTime;
-        mIntentId=intentId;
+        mPendingIntent=intent;
         mAlarmName = alarmName;
     }
 
     public boolean isActive() {
         return mActive;
-    }
-
-    public int getIntentId() {
-        return mIntentId;
-    }
-
-    public void setIntentId(int intentId) {
-        mIntentId = intentId;
     }
 
     public String getTime()
