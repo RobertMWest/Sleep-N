@@ -46,11 +46,14 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         mArrayList = new ArrayList<Alarm>();
-        for(int i=0;i<3;i++)
-        {
-            index=i;
-            //mArrayList.add(new Alarm("8:48 AM", "Alarm", -1));
-        }
+        Intent intent = new Intent(this, AlarmReceiverActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                -1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        mArrayList.add(new Alarm("7:00 AM", "Wake Up", pendingIntent));
+        mArrayList.add(new Alarm("7:15 AM", "Breakfast", pendingIntent));
+        mArrayList.add(new Alarm("7:45 AM", "Bus", pendingIntent));
+        mArrayList.add(new Alarm("8:40 AM", "School", pendingIntent));
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -131,11 +134,15 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
-                PendingIntent intentId = (PendingIntent) data.getExtras().get("intent");
+                Intent intent = new Intent(this, AlarmReceiverActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                        -1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
                 String alarmName = data.getStringExtra("alarmName");
+                if(alarmName.equals(""))
+                    alarmName = "Alarm";
                 String alarmTime = data.getStringExtra("alarmTime");
                 //Add new alarm to RecyclerView here
-                Alarm alarm= new Alarm(alarmTime,alarmName, intentId);
+                Alarm alarm= new Alarm(alarmTime,alarmName, pendingIntent);
                 index++;
                 Log.i(index+"","Index Add");
                 mArrayList.add(alarm);

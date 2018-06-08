@@ -72,6 +72,10 @@ public class AlarmCreator extends AppCompatActivity {
         {
             intent.putExtra("alarmName", mEditText.getText().toString());
         }
+        else
+        {
+            intent.putExtra("alarmName", "Alarm");
+        }
         int intentId = UUID.randomUUID().hashCode();
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 intentId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -96,7 +100,6 @@ public class AlarmCreator extends AppCompatActivity {
         {
             intent.putExtra("alarmName", "Alarm");
         }
-
         String time = "";
         if(timePicker.getCurrentHour() > 12)
         {

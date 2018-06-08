@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
@@ -61,6 +62,7 @@ import java.util.ArrayList;
             LinearLayout v=holder.mLinearLayout;
             ((TextView)v.findViewById(R.id.timeTextView)).setText(mDataset.get(position).getTime());
             ((TextView) v.findViewById(R.id.textView)).setText(mDataset.get(position).getAlarmName());
+            ((ToggleButton) v.findViewById(R.id.toggleButton)).setChecked(true);
         }
 
         // Return the size of your dataset (invoked by the layout manager)
